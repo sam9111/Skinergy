@@ -23,7 +23,7 @@ export const UpdatesList = () => {
         {updates.map((update) => (
           <li key={update.id}>
             <Link href={Routes.ShowUpdatePage({ updateId: update.id })}>
-              <a>{update.name}</a>
+              <a>{update.id}</a>
             </Link>
           </li>
         ))}
