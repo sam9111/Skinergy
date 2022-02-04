@@ -5,6 +5,7 @@ import { z } from "zod"
 const UpdateProduct = z.object({
   id: z.number(),
   name: z.string(),
+  type: z.number(),
 })
 
 export default resolver.pipe(

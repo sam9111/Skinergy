@@ -5,6 +5,10 @@ import { z } from "zod"
 const UpdateUpdate = z.object({
   id: z.number(),
   name: z.string(),
+  self_evaluation: z.string(),
+  rating: z.number(),
+  water: z.number(),
+  sleep: z.number(),
 })
 
 export default resolver.pipe(
