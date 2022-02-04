@@ -3,7 +3,10 @@ import db from "db"
 import { z } from "zod"
 
 const CreateUpdate = z.object({
-  name: z.string(),
+  self_evaluation: z.string(),
+  rating: z.number(),
+  water: z.number(),
+  sleep: z.number(),
 })
 
 export default resolver.pipe(resolver.zod(CreateUpdate), resolver.authorize(), async (input) => {
