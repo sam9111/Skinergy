@@ -63,3 +63,35 @@ model Token {
 // enum TokenType {
 //   RESET_PASSWORD
 // }
+
+model Update {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  self_evaluation String
+  rating          Int
+  water           Int
+  sleep           Int
+  Goal            Goal?    @relation(fields: [goalId], references: [id])
+  goalId          Int?
+}
+
+model Goal {
+  id        Int       @id @default(autoincrement())
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  title     String
+  updates   Update[]
+  products  Product[]
+  frequency Int
+}
+
+model Product {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  Goal      Goal?    @relation(fields: [goalId], references: [id])
+  goalId    Int?
+  type      Int
+}
