@@ -9,13 +9,22 @@ import {
 } from "blitz"
 import LoginForm from "app/auth/components/LoginForm"
 
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, theme } from "@chakra-ui/react"
+import { extendTheme } from "@chakra-ui/react"
+import "@fontsource/inter"
+
+const customTheme = extendTheme({
+  fonts: {
+    heading: "Inter",
+    body: "Inter",
+  },
+})
 
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
       <ErrorBoundary
         FallbackComponent={RootErrorFallback}
         onReset={useQueryErrorResetBoundary().reset}
