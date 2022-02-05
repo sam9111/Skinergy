@@ -2,7 +2,7 @@ import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createGoal from "app/goals/mutations/createGoal"
 import { GoalForm, FORM_ERROR } from "app/goals/components/GoalForm"
-
+import CustomButton from "app/core/components/CustomButton"
 const NewGoalPage: BlitzPage = () => {
   const router = useRouter()
   const [createGoalMutation] = useMutation(createGoal)
@@ -10,7 +10,7 @@ const NewGoalPage: BlitzPage = () => {
   return (
     <div>
       <h1>Create New Goal</h1>
-
+      <CustomButton text="logout" />
       <GoalForm
         submitText="Create Goal"
         // TODO use a zod schema for form validation
